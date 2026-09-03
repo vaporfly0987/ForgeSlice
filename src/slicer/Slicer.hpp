@@ -1,7 +1,6 @@
 #pragma once
 
 #include "slicer/Mesh.hpp"
-#include <cstddef>
 #include <string>
 #include <vector>
 
@@ -15,6 +14,7 @@ struct SliceSettings {
     double layer_height_mm = 0.20;
     double first_layer_height_mm = 0.20;
     double nozzle_mm = 0.40;
+    double filament_diameter_mm = 1.75;
     double line_width_mm = 0.42;
     int walls = 3;
     double infill_percent = 20.0;
