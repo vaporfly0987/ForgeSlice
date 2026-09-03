@@ -1,0 +1,16 @@
+{
+  "id": "flashforge_adventurer_5m_pro",
+  "name": "Adventurer 5M Pro",
+  "manufacturer": "FlashForge",
+  "build_volume_mm": [220, 220, 220],
+  "nozzles_mm": [0.25, 0.4, 0.6, 0.8],
+  "max_nozzle_temperature_c": 280,
+  "max_bed_temperature_c": 100,
+  "max_travel_speed_mm_s": 600,
+  "max_acceleration_mm_s2": 20000,
+  "heated_bed": true,
+  "enclosed": true,
+  "wifi": true,
+  "ethernet": true,
+  "camera": true
+}
