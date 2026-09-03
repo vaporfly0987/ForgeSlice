@@ -10,6 +10,15 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum supported macOS version")
 endif()
 
+set(FORGESLICE_SLICER_SOURCES
+    src/slicer/Mesh.cpp
+    src/slicer/Mesh.hpp
+    src/slicer/Slicer.cpp
+    src/slicer/Slicer.hpp
+    src/slicer/GcodeValidator.cpp
+    src/slicer/GcodeValidator.hpp
+)
+
 add_executable(ForgeSlice
     src/main.cpp
     src/app/Application.cpp
@@ -20,10 +29,7 @@ add_executable(ForgeSlice
     src/core/PrinterProfile.hpp
     src/core/SettingsMode.cpp
     src/core/SettingsMode.hpp
-    src/slicer/Mesh.cpp
-    src/slicer/Mesh.hpp
-    src/slicer/Slicer.cpp
-    src/slicer/Slicer.hpp
+    ${FORGESLICE_SLICER_SOURCES}
 )
 target_include_directories(ForgeSlice PRIVATE src)
 target_compile_definitions(ForgeSlice PRIVATE FORGESLICE_VERSION=\"${PROJECT_VERSION}\")
@@ -42,12 +48,10 @@ if(FORGESLICE_BUILD_TESTS)
     enable_testing()
     add_executable(ForgeSliceTests
         tests/PrinterProfileTests.cpp
+        tests/GcodeValidatorTests.cpp
         src/core/PrinterProfile.cpp
         src/core/PrinterProfile.hpp
-        src/slicer/Mesh.cpp
-        src/slicer/Mesh.hpp
-        src/slicer/Slicer.cpp
-        src/slicer/Slicer.hpp
+        ${FORGESLICE_SLICER_SOURCES}
     )
     target_include_directories(ForgeSliceTests PRIVATE src)
     add_test(NAME ForgeSliceTests COMMAND ForgeSliceTests)
