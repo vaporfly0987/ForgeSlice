@@ -14,7 +14,12 @@ enum class InfillPattern {
     Rectilinear, Grid, Lines, ZigZag, Cross, Cross3D, Triangles, TriHexagon,
     Honeycomb, Hexagon, Cubic, CubicSubdivision, Octet, Gyroid, Concentric,
     Hilbert, ArchimedeanChords, Stars, Scaffolding, Lightning, AdaptiveLines,
-    AdaptiveCubic, Voronoi, Random, Hilbert3D, Sierpinski
+    AdaptiveCubic, Voronoi, Random, Hilbert3D, Sierpinski,
+    Diamond, QuarterCubic, SupportCubic, 3DHoneycomb, Weave, Waves,
+    CrossHatch, Bricks, Tetrahedral, Rhombic, Rectilinear3D, Spiral,
+    Smooth, Lattice, DenseLattice, Fractal, Fermat, Lightning2D,
+    Honeycomb3D, Gyroid3D, SchwarzP, SchwarzD, IWP, Neovius,
+    FischerKoch, Hilbert2D, Cubic3D, Triangles3D, Hexagons, Concentric3D
 };
 
 const char* infillPatternName(InfillPattern pattern);
@@ -36,6 +41,12 @@ struct SliceSettings {
     double retraction_speed_mm_s = 35.0;
     int bottom_layers = 5;
     int top_layers = 5;
+    double nozzle_temperature_c = 200.0;
+    double bed_temperature_c = 60.0;
+    bool enable_retraction = true;
+    bool avoid_crossing_perimeters = false;
+    bool relative_extrusion = false;
+    unsigned int infill_seed = 1337;
 };
 
 class Slicer {
