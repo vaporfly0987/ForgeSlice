@@ -11,6 +11,8 @@ struct Triangle { Vec3 a, b, c; };
 struct Mesh {
     std::vector<Triangle> triangles;
     Vec3 min{}, max{};
+
+    // Loads either a standard binary STL or an ASCII STL.
     static Mesh loadAsciiStl(const std::string& path);
     bool empty() const { return triangles.empty(); }
     void recalculateBounds();
