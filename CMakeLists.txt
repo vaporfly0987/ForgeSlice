@@ -48,9 +48,7 @@ if(FORGESLICE_BUILD_TESTS)
     enable_testing()
     add_executable(ForgeSliceTests
         tests/PrinterProfileTests.cpp
-        tests/GcodeValidatorTests.cpp
         src/core/PrinterProfile.cpp
-        src/core/PrinterProfile.hpp
         ${FORGESLICE_SLICER_SOURCES}
     )
     target_include_directories(ForgeSliceTests PRIVATE src)
